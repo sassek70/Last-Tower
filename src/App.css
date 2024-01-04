@@ -13,7 +13,7 @@
   margin: 5px;
 }
 
-.spawn-area {
+/* .spawn-area {
   display: flex;
   position: absolute;
   border: 3px solid white;
@@ -47,7 +47,7 @@
   border-radius: 50%;
   height: 80vh;
   width: 40vw;
-}
+} */
 
 .tower1 {
   border: 5px solid white;

@@ -1,13 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import { Spawner } from "./Spawner"
 
-const canvas = document.getElementById('canvas')
-// canvas.style()
-// console.log(canvas)
-// const ctx = canvas.getContext('2D')
 
 const GameBoard = () => {
-    // const [test, setTest] = useState(false)
     const [spawnIntervalState, setSpawnIntervalState] = useState()
 
     // useRef acts like state but doesn't cause a rerender. This prevents the intervalID from changing
@@ -18,11 +13,6 @@ const GameBoard = () => {
 
 
 const startTest = () => {
-    // setTest(true)
-    // setTest((test) => Spawner(5, 1, 1, 2,3)
-        // ctx.draw
-        // )
-    // setSpawnIntervalState(true)
 
     spawnInterval.current = setInterval(() => {
             const spawnedEnemy = Spawner(5, 1, 1, 2,3);
@@ -36,7 +26,6 @@ const startTest = () => {
                 console.log("interval cleared")
             }
        },1000)
-    // setTest((test) => RandomEnemyGenerator())
 }
 
 
