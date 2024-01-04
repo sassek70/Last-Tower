@@ -38,6 +38,17 @@
   width: 40vw;
 }
 
+#game-area-canvas {
+  display: flex;
+  position: relative;
+  border: 3px solid white;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 80vh;
+  width: 40vw;
+}
+
 .tower1 {
   border: 5px solid white;
   width: 2em;

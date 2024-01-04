@@ -1,32 +1,60 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Spawner } from "./Spawner"
 
+const canvas = document.getElementById('canvas')
+// canvas.style()
+// console.log(canvas)
+// const ctx = canvas.getContext('2D')
+
 const GameBoard = () => {
-    const [test, setTest] = useState(false)
+    // const [test, setTest] = useState(false)
+    const [spawnIntervalState, setSpawnIntervalState] = useState()
+
+    // useRef acts like state but doesn't cause a rerender. This prevents the intervalID from changing
+    const spawnInterval = useRef();
+    let enemyCount = 0;
+    let activeEnemies = [];
 
 
 
 const startTest = () => {
-    setTest(true)
-    // setTest((test) => Spawner(5, 1, 1, 2,3))
+    // setTest(true)
+    // setTest((test) => Spawner(5, 1, 1, 2,3)
+        // ctx.draw
+        // )
+    // setSpawnIntervalState(true)
+
+    spawnInterval.current = setInterval(() => {
+            const spawnedEnemy = Spawner(5, 1, 1, 2,3);
+            console.log(spawnInterval)
+            activeEnemies.push(spawnedEnemy)
+            enemyCount++
+            // activeEnemies.forEach ((enemy) => {
+            // console.log(enemyArray)
+            if(enemyCount === 10) {
+                clearInterval(spawnInterval)
+                console.log("interval cleared")
+            }
+       },1000)
     // setTest((test) => RandomEnemyGenerator())
 }
 
-const stopTest = () => {
-    setTest(false)
-    // clearInterval(spawnEnemy)
 
+// document.addEventListener("mousedown", () => {
+//     ctx.fillRect(e.x, e.y, 50, 50)
+// })
+
+const stopTest = () => {
+    // if(spawnIntervalState === true) {
+        clearInterval(spawnInterval.current)
+        setSpawnIntervalState(false)
+        console.log("Interval cleared")
+    // } else {
+        // return
+    // }
 }
 
-// const spawnEnemy = setInterval(() => {
-//         const enemy = Spawner(5, 1, 1, 2,3);
-//         console.log(enemy)
-// },1000)
 
-if (test === true)
-
-
-console.log(test)
 
     return (
         <div className="game-root">
@@ -34,12 +62,14 @@ console.log(test)
                 THE GAME
             </h1> */}
             <div className="spawn-area">
-                <div className="game-space">
-                    <div className="tower1"></div>
-                    <div className="tower2"></div>
-                    <div className="tower-range"></div>
-                </div>
+                {<div className="game-space-containter">
+                    {/* <canvas id="game-area-canvas"></canvas> */}
+                    {/* <div className="tower1"></div> */}
+                    {/* <div className="tower2"></div> */}
+                    {/* <div className="tower-range"></div> */}
+                </div>}
             </div>
+
             <button onClick={() => startTest()}>test</button>
             <button onClick={() => stopTest()}>stop test</button>
         </div>
