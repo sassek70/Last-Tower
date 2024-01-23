@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Route, Routes, useNavigate } from "react-router-dom";
 import GameBoard from './components/GameBoard';
-import MainMenu from './components/MainMenu'
+import MainMenu from './components/MainMenu';
+import Canvas from './components/Canvas';
 import './App.css'
 
 
@@ -15,7 +16,8 @@ function App() {
       <MainMenu/>
     </div> */}
     <div>
-      <GameBoard />
+      {/* <GameBoard /> */}
+      <Canvas canvasHeight={"80vh"} canvasWidth={"40vw"}/>
       {/* <Routes>
         <Route path="/gameboard" element={<GameBoard />}/>
       </Routes> */}
